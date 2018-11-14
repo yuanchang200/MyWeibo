@@ -57,7 +57,7 @@ CGFloat bottomButtonHeight = 20;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellID = @"cellID";
     TableCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellID];
-    postItem *item = self.posts[indexPath.row];
+    postItem *item = self.posts[indexPath.section];
     cell.singlePostItem = item;
     
     CGFloat contentHeight = [TableCellTableViewCell getLabelHeightWithText:cell.singlePostItem.content Width:UI_SCREEN_WIDTH - leadingSpace_t * 2 Font:[UIFont systemFontOfSize:15]];
