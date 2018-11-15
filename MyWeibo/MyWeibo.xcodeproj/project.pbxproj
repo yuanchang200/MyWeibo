@@ -22,6 +22,13 @@
 		B893808221963B58000CC6A9 /* postItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B893808121963B58000CC6A9 /* postItem.m */; };
 		B89380852197AD2B000CC6A9 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380842197AD2B000CC6A9 /* TabBarController.m */; };
 		B89380882197AD82000CC6A9 /* HomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380872197AD82000CC6A9 /* HomeNavigationController.m */; };
+		B893809B219CCAB6000CC6A9 /* comments.plist in Resources */ = {isa = PBXBuildFile; fileRef = B893809A219CCAB6000CC6A9 /* comments.plist */; };
+		B893809E219CD10C000CC6A9 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B893809D219CD10C000CC6A9 /* DetailTableViewController.m */; };
+		B89380A2219CD664000CC6A9 /* commentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380A1219CD664000CC6A9 /* commentItem.m */; };
+		B89380A7219CDD87000CC6A9 /* DetailedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380A5219CDD87000CC6A9 /* DetailedPostTableViewCell.m */; };
+		B89380A8219CDD87000CC6A9 /* DetailedPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89380A6219CDD87000CC6A9 /* DetailedPostTableViewCell.xib */; };
+		B89380AC219CE6AA000CC6A9 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380AA219CE6AA000CC6A9 /* CommentTableViewCell.m */; };
+		B89380AD219CE6AA000CC6A9 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +79,17 @@
 		B89380842197AD2B000CC6A9 /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		B89380862197AD82000CC6A9 /* HomeNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeNavigationController.h; sourceTree = "<group>"; };
 		B89380872197AD82000CC6A9 /* HomeNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeNavigationController.m; sourceTree = "<group>"; };
+		B893809A219CCAB6000CC6A9 /* comments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = comments.plist; sourceTree = "<group>"; };
+		B893809C219CD10C000CC6A9 /* DetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
+		B893809D219CD10C000CC6A9 /* DetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
+		B89380A0219CD664000CC6A9 /* commentItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commentItem.h; sourceTree = "<group>"; };
+		B89380A1219CD664000CC6A9 /* commentItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = commentItem.m; sourceTree = "<group>"; };
+		B89380A4219CDD87000CC6A9 /* DetailedPostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedPostTableViewCell.h; sourceTree = "<group>"; };
+		B89380A5219CDD87000CC6A9 /* DetailedPostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedPostTableViewCell.m; sourceTree = "<group>"; };
+		B89380A6219CDD87000CC6A9 /* DetailedPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailedPostTableViewCell.xib; sourceTree = "<group>"; };
+		B89380A9219CE6AA000CC6A9 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
+		B89380AA219CE6AA000CC6A9 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +140,7 @@
 		B8938035218A5CEE000CC6A9 /* MyWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				B893809F219CD635000CC6A9 /* commentItem */,
 				B893807F21963B21000CC6A9 /* postItem */,
 				B893807A21961C0F000CC6A9 /* resources */,
 				B893806E2194BDA1000CC6A9 /* images */,
@@ -144,6 +163,14 @@
 				B89380842197AD2B000CC6A9 /* TabBarController.m */,
 				B89380862197AD82000CC6A9 /* HomeNavigationController.h */,
 				B89380872197AD82000CC6A9 /* HomeNavigationController.m */,
+				B893809C219CD10C000CC6A9 /* DetailTableViewController.h */,
+				B893809D219CD10C000CC6A9 /* DetailTableViewController.m */,
+				B89380A4219CDD87000CC6A9 /* DetailedPostTableViewCell.h */,
+				B89380A5219CDD87000CC6A9 /* DetailedPostTableViewCell.m */,
+				B89380A6219CDD87000CC6A9 /* DetailedPostTableViewCell.xib */,
+				B89380A9219CE6AA000CC6A9 /* CommentTableViewCell.h */,
+				B89380AA219CE6AA000CC6A9 /* CommentTableViewCell.m */,
+				B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */,
 			);
 			path = MyWeibo;
 			sourceTree = "<group>";
@@ -170,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				B893807B21961C51000CC6A9 /* posts.plist */,
+				B893809A219CCAB6000CC6A9 /* comments.plist */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -181,6 +209,15 @@
 				B893808121963B58000CC6A9 /* postItem.m */,
 			);
 			path = postItem;
+			sourceTree = "<group>";
+		};
+		B893809F219CD635000CC6A9 /* commentItem */ = {
+			isa = PBXGroup;
+			children = (
+				B89380A0219CD664000CC6A9 /* commentItem.h */,
+				B89380A1219CD664000CC6A9 /* commentItem.m */,
+			);
+			path = commentItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,11 +326,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89380A8219CDD87000CC6A9 /* DetailedPostTableViewCell.xib in Resources */,
+				B893809B219CCAB6000CC6A9 /* comments.plist in Resources */,
 				B8938043218A5CEE000CC6A9 /* LaunchScreen.storyboard in Resources */,
 				B8938040218A5CEE000CC6A9 /* Assets.xcassets in Resources */,
 				B893807C21961C51000CC6A9 /* posts.plist in Resources */,
 				B893807621950582000CC6A9 /* TableCellTableViewCell.xib in Resources */,
 				B893803E218A5CEE000CC6A9 /* Main.storyboard in Resources */,
+				B89380AD219CE6AA000CC6A9 /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,11 +360,15 @@
 			files = (
 				B89380852197AD2B000CC6A9 /* TabBarController.m in Sources */,
 				B893808221963B58000CC6A9 /* postItem.m in Sources */,
+				B89380A7219CDD87000CC6A9 /* DetailedPostTableViewCell.m in Sources */,
 				B89380882197AD82000CC6A9 /* HomeNavigationController.m in Sources */,
+				B893809E219CD10C000CC6A9 /* DetailTableViewController.m in Sources */,
 				B893803B218A5CEE000CC6A9 /* ViewController.m in Sources */,
 				B8938046218A5CEE000CC6A9 /* main.m in Sources */,
+				B89380AC219CE6AA000CC6A9 /* CommentTableViewCell.m in Sources */,
 				B893807521950582000CC6A9 /* TableCellTableViewCell.m in Sources */,
 				B893807921950C14000CC6A9 /* TableViewTableViewController.m in Sources */,
+				B89380A2219CD664000CC6A9 /* commentItem.m in Sources */,
 				B8938038218A5CEE000CC6A9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

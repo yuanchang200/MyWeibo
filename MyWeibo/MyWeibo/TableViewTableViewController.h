@@ -11,4 +11,5 @@
 @interface TableViewTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *homeTableView;
 @property (nonatomic, strong) NSArray *posts;
+@property (nonatomic, strong) NSArray *comments;
 @end

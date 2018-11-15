@@ -9,6 +9,8 @@
 #import "TableViewTableViewController.h"
 #import "TableCellTableViewCell.h"
 #import "postItem.h"
+#import "commentItem.h"
+#import "DetailTableViewController.h"
 #define UI_SCREEN_WIDTH 300
 
 @interface TableViewTableViewController ()
@@ -39,6 +41,24 @@ CGFloat bottomButtonHeight = 20;
         _posts = tmpArray;
     }
     return _posts;
+}
+//load comments from comments.plist
+-(NSArray *)comments{
+    if(_comments == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"comments" ofType:@"plist"];
+        NSArray *commentsArray = [NSArray arrayWithContentsOfFile:path];
+        NSMutableArray *tmpArray1 = [NSMutableArray array];
+        for (NSArray *arr in commentsArray){
+            NSMutableArray *tmpArray2 = [NSMutableArray array];
+            for (NSDictionary *dic in arr){
+                commentItem *item = [commentItem initCommentItem:dic];
+                [tmpArray2 addObject:item];
+            }
+            [tmpArray1 addObject:tmpArray2];
+        }
+        _comments = tmpArray1;
+    }
+    return _comments;
 }
 
 - (void)viewDidLoad {
@@ -110,6 +130,13 @@ CGFloat bottomButtonHeight = 20;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 8.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailTableViewController *dViewController = [[DetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    dViewController.post = self.posts[indexPath.section];
+    dViewController.comments = self.comments[indexPath.section];
+    [self.navigationController pushViewController:dViewController animated:YES];
 }
 
 /*
