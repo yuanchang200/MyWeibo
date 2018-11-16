@@ -17,5 +17,5 @@
 
 @property (nonatomic,strong) postItem *singlePostItem;
 
-+ (CGFloat)getLabelHeightWithText: (NSString *)text Width:(CGFloat)width Font:(UIFont *)font;
+//+ (CGFloat)getLabelHeightWithText: (NSString *)text Width:(CGFloat)width Font:(UIFont *)font;
 @end

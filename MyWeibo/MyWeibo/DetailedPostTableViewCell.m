@@ -8,6 +8,7 @@
 
 #import "DetailedPostTableViewCell.h"
 #import "postItem.h"
+#import "TableCellTableViewCell.h"
 #define UI_SCREEN_WIDTH 300
 
 @implementation DetailedPostTableViewCell
@@ -34,7 +35,7 @@ CGFloat contentLabelOriginY_1 = 50;
     // Configure the view for the selected state
 }
 
-+ (CGFloat)getLabelHeightWithText:(NSString *)text Width:(CGFloat)width Font:(UIFont *)font{
+/*+ (CGFloat)getLabelHeightWithText:(NSString *)text Width:(CGFloat)width Font:(UIFont *)font{
     CGSize size = CGSizeMake(width, MAXFLOAT);
     CGSize returnSize;
     
@@ -42,7 +43,7 @@ CGFloat contentLabelOriginY_1 = 50;
     returnSize = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
     
     return returnSize.height;
-}
+}*/
 
 - (void)setSinglePostItem:(postItem *)singlePostItem{
     
@@ -52,7 +53,7 @@ CGFloat contentLabelOriginY_1 = 50;
     self.time.text = _singlePostItem.time;
     self.content.text = _singlePostItem.content;
     
-    CGFloat contentHeight = [DetailedPostTableViewCell getLabelHeightWithText:self.content.text Width:UI_SCREEN_WIDTH - leadingSpace_1 * 2 Font:[UIFont systemFontOfSize:15]];
+    CGFloat contentHeight = [TableCellTableViewCell getLabelHeightWithText:self.content.text Width:UI_SCREEN_WIDTH - leadingSpace_1 * 2 Font:[UIFont systemFontOfSize:15]];
     [self.content setFrame:CGRectMake(7, 58, 305, contentHeight + 5)];
     
     if (_singlePostItem.postImgs.count == 1){

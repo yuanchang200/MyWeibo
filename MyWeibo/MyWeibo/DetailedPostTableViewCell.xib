@@ -37,8 +37,8 @@
                         <color key="textColor" red="0.6927420661" green="0.6927420661" blue="0.6927420661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvY-qh-vbg">
-                        <rect key="frame" x="7" y="58" width="37.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvY-qh-vbg">
+                        <rect key="frame" x="7" y="58" width="305" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,6 +47,7 @@
                 <constraints>
                     <constraint firstItem="9v1-wl-qCI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="9uz-Wl-Zty"/>
                     <constraint firstItem="AvY-qh-vbg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="58" id="Esr-Z7-Uas"/>
+                    <constraint firstItem="AvY-qh-vbg" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-8" id="Otz-Kl-03F"/>
                     <constraint firstItem="AvY-qh-vbg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="PPM-iL-Rbd"/>
                     <constraint firstItem="ufa-QC-csh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="RxD-Cj-X1c"/>
                     <constraint firstItem="9v1-wl-qCI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="29" id="T0V-4b-SBc"/>

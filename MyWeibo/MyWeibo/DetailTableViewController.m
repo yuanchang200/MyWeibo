@@ -9,6 +9,7 @@
 #import "DetailTableViewController.h"
 #import "DetailedPostTableViewCell.h"
 #import "CommentTableViewCell.h"
+#import "TableCellTableViewCell.h"
 #define UI_SCREEN_WIDTH 300
 
 NSInteger column_d = 0;
@@ -56,6 +57,10 @@ CGFloat contentLabelOriginY_d = 50;
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 8.0;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
@@ -63,7 +68,7 @@ CGFloat contentLabelOriginY_d = 50;
         DetailedPostTableViewCell *postCell = [tableView dequeueReusableCellWithIdentifier:@"cellID1"];
         postCell.singlePostItem = self.post;
         
-        CGFloat contentHeight = [DetailedPostTableViewCell getLabelHeightWithText:postCell.singlePostItem.content Width:UI_SCREEN_WIDTH - leadingSpace_d * 2 Font:[UIFont systemFontOfSize:15]];
+        CGFloat contentHeight = [TableCellTableViewCell getLabelHeightWithText:postCell.singlePostItem.content Width:UI_SCREEN_WIDTH - leadingSpace_d * 2 Font:[UIFont systemFontOfSize:15]];
         
         originY_d = contentLabelOriginY_d + contentHeight + leadingSpace_d;
         if (postCell.singlePostItem.postImgs.count == 1){
@@ -97,7 +102,7 @@ CGFloat contentLabelOriginY_d = 50;
     
     originY_d = contentLabelOriginY_d + contentHeight + leadingSpace_d;
     CGRect rect = commentCell.frame;
-    rect.size.height = originY_d + 25 + leadingSpace_d;
+    rect.size.height = originY_d;
     commentCell.frame = rect;
     
     return commentCell;
