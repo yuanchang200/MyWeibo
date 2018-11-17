@@ -29,6 +29,7 @@
 		B89380A8219CDD87000CC6A9 /* DetailedPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89380A6219CDD87000CC6A9 /* DetailedPostTableViewCell.xib */; };
 		B89380AC219CE6AA000CC6A9 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380AA219CE6AA000CC6A9 /* CommentTableViewCell.m */; };
 		B89380AD219CE6AA000CC6A9 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */; };
+		B89380B8219F8679000CC6A9 /* DetailedBottomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380B7219F8679000CC6A9 /* DetailedBottomTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		B89380A9219CE6AA000CC6A9 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		B89380AA219CE6AA000CC6A9 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		B89380B6219F8679000CC6A9 /* DetailedBottomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedBottomTableViewCell.h; sourceTree = "<group>"; };
+		B89380B7219F8679000CC6A9 /* DetailedBottomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedBottomTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 				B89380A9219CE6AA000CC6A9 /* CommentTableViewCell.h */,
 				B89380AA219CE6AA000CC6A9 /* CommentTableViewCell.m */,
 				B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */,
+				B89380B6219F8679000CC6A9 /* DetailedBottomTableViewCell.h */,
+				B89380B7219F8679000CC6A9 /* DetailedBottomTableViewCell.m */,
 			);
 			path = MyWeibo;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				B893807921950C14000CC6A9 /* TableViewTableViewController.m in Sources */,
 				B89380A2219CD664000CC6A9 /* commentItem.m in Sources */,
 				B8938038218A5CEE000CC6A9 /* AppDelegate.m in Sources */,
+				B89380B8219F8679000CC6A9 /* DetailedBottomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

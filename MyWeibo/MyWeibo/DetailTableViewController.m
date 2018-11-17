@@ -10,6 +10,7 @@
 #import "DetailedPostTableViewCell.h"
 #import "CommentTableViewCell.h"
 #import "TableCellTableViewCell.h"
+#import "DetailedBottomTableViewCell.h"
 #define UI_SCREEN_WIDTH 300
 
 NSInteger column_d = 0;
@@ -31,8 +32,11 @@ CGFloat contentLabelOriginY_d = 50;
     
     NSString *cellID1 = @"cellID1";
     NSString *cellID2 = @"cellID2";
+    NSString *cellID3 = @"cellID3";
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailedPostTableViewCell" bundle:nil] forCellReuseIdentifier:cellID1];
     [self.tableView registerNib:[UINib nibWithNibName:@"CommentTableViewCell" bundle:nil] forCellReuseIdentifier:cellID2];
+    //[self.tableView registerNib:[UINib nibWithNibName:@"DetailedBottomTableViewCell" bundle:nil] forCellReuseIdentifier:cellID3];
+    [self.tableView registerClass:[DetailedBottomTableViewCell class] forCellReuseIdentifier:cellID3];
     self.tableView.sectionFooterHeight = 1.0;
     
     // Uncomment the following line to preserve selection between presentations.
@@ -95,7 +99,7 @@ CGFloat contentLabelOriginY_d = 50;
         
         return postCell;
     }
-    CommentTableViewCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"cellID2"];
+    /*CommentTableViewCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"cellID2"];
     commentCell.singleCommentItem = self.comments[0];
     
     CGFloat contentHeight = [CommentTableViewCell getLabelHeightWithText:commentCell.singleCommentItem.content Width:UI_SCREEN_WIDTH - leadingSpace_d * 2 Font:[UIFont systemFontOfSize:14]];
@@ -105,7 +109,11 @@ CGFloat contentLabelOriginY_d = 50;
     rect.size.height = originY_d;
     commentCell.frame = rect;
     
-    return commentCell;
+    return commentCell;*/
+    
+    DetailedBottomTableViewCell *detailedBottomCell = [tableView dequeueReusableCellWithIdentifier:@"cellID3"];
+    detailedBottomCell.comments = self.comments;
+    return detailedBottomCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
