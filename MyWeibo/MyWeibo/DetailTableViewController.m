@@ -113,6 +113,8 @@ CGFloat contentLabelOriginY_d = 50;
     
     DetailedBottomTableViewCell *detailedBottomCell = [tableView dequeueReusableCellWithIdentifier:@"cellID3"];
     detailedBottomCell.comments = self.comments;
+    detailedBottomCell.reposts = self.reposts;
+    detailedBottomCell.likes = self.likes;
     return detailedBottomCell;
 }
 

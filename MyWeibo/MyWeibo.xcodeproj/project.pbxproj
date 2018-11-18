@@ -30,6 +30,11 @@
 		B89380AC219CE6AA000CC6A9 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380AA219CE6AA000CC6A9 /* CommentTableViewCell.m */; };
 		B89380AD219CE6AA000CC6A9 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */; };
 		B89380B8219F8679000CC6A9 /* DetailedBottomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380B7219F8679000CC6A9 /* DetailedBottomTableViewCell.m */; };
+		B89380BA21A0E5FB000CC6A9 /* reposts.plist in Resources */ = {isa = PBXBuildFile; fileRef = B89380B921A0E5FB000CC6A9 /* reposts.plist */; };
+		B89380BC21A0EAF7000CC6A9 /* likes.plist in Resources */ = {isa = PBXBuildFile; fileRef = B89380BB21A0EAF7000CC6A9 /* likes.plist */; };
+		B89380C021A0F23D000CC6A9 /* likeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380BF21A0F23D000CC6A9 /* likeItem.m */; };
+		B89380C421A0F351000CC6A9 /* LikeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380C221A0F351000CC6A9 /* LikeTableViewCell.m */; };
+		B89380C521A0F351000CC6A9 /* LikeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89380C321A0F351000CC6A9 /* LikeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,13 @@
 		B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		B89380B6219F8679000CC6A9 /* DetailedBottomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedBottomTableViewCell.h; sourceTree = "<group>"; };
 		B89380B7219F8679000CC6A9 /* DetailedBottomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedBottomTableViewCell.m; sourceTree = "<group>"; };
+		B89380B921A0E5FB000CC6A9 /* reposts.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = reposts.plist; sourceTree = "<group>"; };
+		B89380BB21A0EAF7000CC6A9 /* likes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = likes.plist; sourceTree = "<group>"; };
+		B89380BE21A0F23D000CC6A9 /* likeItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = likeItem.h; sourceTree = "<group>"; };
+		B89380BF21A0F23D000CC6A9 /* likeItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = likeItem.m; sourceTree = "<group>"; };
+		B89380C121A0F351000CC6A9 /* LikeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikeTableViewCell.h; sourceTree = "<group>"; };
+		B89380C221A0F351000CC6A9 /* LikeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LikeTableViewCell.m; sourceTree = "<group>"; };
+		B89380C321A0F351000CC6A9 /* LikeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +155,7 @@
 		B8938035218A5CEE000CC6A9 /* MyWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				B89380BD21A0EF1C000CC6A9 /* likeItem */,
 				B893809F219CD635000CC6A9 /* commentItem */,
 				B893807F21963B21000CC6A9 /* postItem */,
 				B893807A21961C0F000CC6A9 /* resources */,
@@ -176,6 +189,9 @@
 				B89380AB219CE6AA000CC6A9 /* CommentTableViewCell.xib */,
 				B89380B6219F8679000CC6A9 /* DetailedBottomTableViewCell.h */,
 				B89380B7219F8679000CC6A9 /* DetailedBottomTableViewCell.m */,
+				B89380C121A0F351000CC6A9 /* LikeTableViewCell.h */,
+				B89380C221A0F351000CC6A9 /* LikeTableViewCell.m */,
+				B89380C321A0F351000CC6A9 /* LikeTableViewCell.xib */,
 			);
 			path = MyWeibo;
 			sourceTree = "<group>";
@@ -203,6 +219,8 @@
 			children = (
 				B893807B21961C51000CC6A9 /* posts.plist */,
 				B893809A219CCAB6000CC6A9 /* comments.plist */,
+				B89380B921A0E5FB000CC6A9 /* reposts.plist */,
+				B89380BB21A0EAF7000CC6A9 /* likes.plist */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -223,6 +241,15 @@
 				B89380A1219CD664000CC6A9 /* commentItem.m */,
 			);
 			path = commentItem;
+			sourceTree = "<group>";
+		};
+		B89380BD21A0EF1C000CC6A9 /* likeItem */ = {
+			isa = PBXGroup;
+			children = (
+				B89380BE21A0F23D000CC6A9 /* likeItem.h */,
+				B89380BF21A0F23D000CC6A9 /* likeItem.m */,
+			);
+			path = likeItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,14 +358,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89380C521A0F351000CC6A9 /* LikeTableViewCell.xib in Resources */,
 				B89380A8219CDD87000CC6A9 /* DetailedPostTableViewCell.xib in Resources */,
 				B893809B219CCAB6000CC6A9 /* comments.plist in Resources */,
 				B8938043218A5CEE000CC6A9 /* LaunchScreen.storyboard in Resources */,
 				B8938040218A5CEE000CC6A9 /* Assets.xcassets in Resources */,
+				B89380BA21A0E5FB000CC6A9 /* reposts.plist in Resources */,
 				B893807C21961C51000CC6A9 /* posts.plist in Resources */,
 				B893807621950582000CC6A9 /* TableCellTableViewCell.xib in Resources */,
 				B893803E218A5CEE000CC6A9 /* Main.storyboard in Resources */,
 				B89380AD219CE6AA000CC6A9 /* CommentTableViewCell.xib in Resources */,
+				B89380BC21A0EAF7000CC6A9 /* likes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +397,9 @@
 				B893808221963B58000CC6A9 /* postItem.m in Sources */,
 				B89380A7219CDD87000CC6A9 /* DetailedPostTableViewCell.m in Sources */,
 				B89380882197AD82000CC6A9 /* HomeNavigationController.m in Sources */,
+				B89380C421A0F351000CC6A9 /* LikeTableViewCell.m in Sources */,
 				B893809E219CD10C000CC6A9 /* DetailTableViewController.m in Sources */,
+				B89380C021A0F23D000CC6A9 /* likeItem.m in Sources */,
 				B893803B218A5CEE000CC6A9 /* ViewController.m in Sources */,
 				B8938046218A5CEE000CC6A9 /* main.m in Sources */,
 				B89380AC219CE6AA000CC6A9 /* CommentTableViewCell.m in Sources */,

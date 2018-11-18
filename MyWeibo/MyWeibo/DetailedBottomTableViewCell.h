@@ -10,6 +10,15 @@
 
 @interface DetailedBottomTableViewCell : UITableViewCell
 @property (nonatomic, strong) NSArray *comments;
-
+@property (nonatomic, strong) NSArray *reposts;
+@property (nonatomic, strong) NSArray *likes;
+@property (nonatomic, strong) UIScrollView* scrollView;
+@property (nonatomic, strong) UIButton* btn_repost;
+@property (nonatomic, strong) UIButton* btn_comment;
+@property (nonatomic, strong) UIButton* btn_like;
+@property (nonatomic, strong) UIImageView* imageLine;
+@property (nonatomic, strong) UITableView* table_repost;
+@property (nonatomic, strong) UITableView* table_comment;
+@property (nonatomic, strong) UITableView* table_like;
 @end
 

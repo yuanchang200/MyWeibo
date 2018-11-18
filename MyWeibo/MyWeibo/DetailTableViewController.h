@@ -14,5 +14,7 @@
 
 @property (nonatomic, strong) postItem *post;
 @property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong) NSArray *reposts;
+@property (nonatomic, strong) NSArray *likes;
 
 @end

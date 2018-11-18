@@ -10,6 +10,7 @@
 #import "TableCellTableViewCell.h"
 #import "postItem.h"
 #import "commentItem.h"
+#import "likeItem.h"
 #import "DetailTableViewController.h"
 #define UI_SCREEN_WIDTH 300
 
@@ -59,6 +60,43 @@ CGFloat bottomButtonHeight = 20;
         _comments = tmpArray1;
     }
     return _comments;
+}
+
+//load reposts from reposts.plist
+- (NSArray *)reposts{
+    if(_reposts == nil){
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"reposts" ofType:@"plist"];
+        NSArray *repostsArray = [NSArray arrayWithContentsOfFile:path];
+        NSMutableArray *tmpArray1 = [NSMutableArray array];
+        for(NSArray *arr in repostsArray){
+            NSMutableArray *tmpArray2 = [NSMutableArray array];
+            for(NSDictionary *dic in arr){
+                commentItem *item = [commentItem initCommentItem:dic];
+                [tmpArray2 addObject:item];
+            }
+            [tmpArray1 addObject:tmpArray2];
+        }
+        _reposts = tmpArray1;
+    }
+    return _reposts;
+}
+//load likes from likes.plist
+- (NSArray *)likes{
+    if(_likes == nil){
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"likes" ofType:@"plist"];
+        NSArray *likesArray = [NSArray arrayWithContentsOfFile:path];
+        NSMutableArray *tmpArray1 = [NSMutableArray array];
+        for(NSArray *arr in likesArray){
+            NSMutableArray *tmpArray2 = [NSMutableArray array];
+            for(NSDictionary *dic in arr){
+                likeItem *item = [likeItem initLikeItem:dic];
+                [tmpArray2 addObject:item];
+            }
+            [tmpArray1 addObject:tmpArray2];
+        }
+        _likes = tmpArray1;
+    }
+    return _likes;
 }
 
 - (void)viewDidLoad {
@@ -136,6 +174,8 @@ CGFloat bottomButtonHeight = 20;
     DetailTableViewController *dViewController = [[DetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     dViewController.post = self.posts[indexPath.section];
     dViewController.comments = self.comments[indexPath.section];
+    dViewController.reposts = self.reposts[indexPath.section];
+    dViewController.likes = self.likes[indexPath.section];
     [self.navigationController pushViewController:dViewController animated:YES];
 }
 

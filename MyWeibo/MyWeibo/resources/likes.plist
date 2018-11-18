@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>nickname</key>
+			<string>啵唧小丸子啊</string>
+			<key>icon</key>
+			<string>gyy_like1.jpg</string>
+			<key>bio</key>
+			<string>暂无介绍</string>
+		</dict>
+		<dict>
+			<key>nickname</key>
+			<string>资深迪士尼玩家</string>
+			<key>icon</key>
+			<string>gyy_like2.jpg</string>
+			<key>bio</key>
+			<string>macky</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>nickname</key>
+			<string>WYF凡有钱6518661709</string>
+			<key>icon</key>
+			<string>wyf1_like1.jpg</string>
+			<key>bio</key>
+			<string>暂无介绍</string>
+		</dict>
+		<dict>
+			<key>nickname</key>
+			<string>DU--Haxyao</string>
+			<key>icon</key>
+			<string>wyf1_like2.jpg</string>
+			<key>bio</key>
+			<string>一个开不起vip的人</string>
+		</dict>
+		<dict>
+			<key>nickname</key>
+			<string>飞翔的筱克力_95888</string>
+			<key>icon</key>
+			<string>wyf1_like3.jpg</string>
+			<key>bio</key>
+			<string>暂无介绍</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>nickname</key>
+			<string>kyoay</string>
+			<key>icon</key>
+			<string>wyf2_like1.jpg</string>
+			<key>bio</key>
+			<string>我是个不羁的小孩</string>
+		</dict>
+		<dict>
+			<key>nickname</key>
+			<string>唯心论语</string>
+			<key>icon</key>
+			<string>wyf2_like2.jpg</string>
+			<key>bio</key>
+			<string>脾气火爆 一点就着 你尊重我 我尊重你</string>
+		</dict>
+		<dict>
+			<key>nickname</key>
+			<string>20cm的ADC</string>
+			<key>icon</key>
+			<string>wyf2_like3.jpg</string>
+			<key>bio</key>
+			<string>月亮发光只不过一夜i</string>
+		</dict>
+	</array>
+</array>
+</plist>
