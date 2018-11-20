@@ -8,6 +8,7 @@
 
 #import "TableCellTableViewCell.h"
 #import "postItem.h"
+#import "MyImageView.h"
 #define UI_SCREEN_WIDTH 300
 
 @interface TableCellTableViewCell()<UIScrollViewDelegate>
@@ -93,9 +94,13 @@ NSMutableArray *rectInWindowArray;
             if (i * column + j < _singlePostItem.postImgs.count) {
                 NSString *imageName = _singlePostItem.postImgs[i * column + j];
                 UIImage *image = [UIImage imageNamed:imageName];
-                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(leadingSpace + j * (imageSpace + imageWidth), originY + leadingSpace + i * (imageSpace + imageWidth), imageWidth, imageWidth)];
+                MyImageView *imageView = [[MyImageView alloc] initWithFrame:CGRectMake(leadingSpace + j * (imageSpace + imageWidth), originY + leadingSpace + i * (imageSpace + imageWidth), imageWidth, imageWidth)];
                 
-                imageView.tag = i*column+j;
+                imageView.i = i;
+                imageView.j = j;
+                imageView.row = row;
+                imageView.column = column;
+                imageView.count = _singlePostItem.postImgs.count;
                 imageView.userInteractionEnabled = YES;
                 UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
                 [imageView addGestureRecognizer:tapGesture];
@@ -108,35 +113,26 @@ NSMutableArray *rectInWindowArray;
 }
 
 - (void)tapAction:(id)sender{
-    int i_tap = 0, j_tap = 0;
     rectInWindowArray = [NSMutableArray array];
     
     UITapGestureRecognizer *tap = (UITapGestureRecognizer *)sender;
-    UIImageView *view = (UIImageView *)tap.view;
-    NSInteger index = view.tag;
+    MyImageView *view = (MyImageView *)tap.view;
     
     UIWindow* window = [UIApplication sharedApplication].keyWindow;
     CGRect rectInWindow = [view convertRect:view.bounds toView:window];
     
-    if(column == 1){
+    if(view.column == 1){
         imageWidth = UI_SCREEN_WIDTH * 0.55;
     }else{
         imageWidth = (UI_SCREEN_WIDTH - (leadingSpace + imageSpace) * 2) / 3;
     }
     
-    for(int i = 0; i < row; i++){
-        for(int j = 0; j < column; j++){
-            if(i*column+j == index){
-                i_tap = i;
-                j_tap = j;
+    for(int i = 0; i < view.row; i++){
+        for(int j = 0; j < view.column; j++){
+            if(i*view.column+j<view.count){
+                CGRect tmpRect = CGRectMake(rectInWindow.origin.x+(j-view.j)*(imageSpace+imageWidth), rectInWindow.origin.y+(i-view.i)*(imageSpace+imageWidth), imageWidth, imageWidth);
+                [rectInWindowArray addObject:NSStringFromCGRect(tmpRect)];
             }
-        }
-    }
-    
-    for(int i = 0; i < row; i++){
-        for(int j = 0; j < column; j++){
-            CGRect tmpRect = CGRectMake(rectInWindow.origin.x+(j-j_tap)*(imageSpace+imageWidth), rectInWindow.origin.y+(i-i_tap)*(imageSpace+imageWidth), imageWidth, imageWidth);
-            [rectInWindowArray addObject:NSStringFromCGRect(tmpRect)];
         }
     }
     
@@ -162,7 +158,7 @@ NSMutableArray *rectInWindowArray;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeView:)];
         [largeImageView addGestureRecognizer:tapGesture];
     }
-    imageScrollView.contentOffset = CGPointMake(mainWidth*index, 0);
+    imageScrollView.contentOffset = CGPointMake(mainWidth*(view.i*view.column+view.j), 0);
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:view.image];
     tempImageView.frame = rectInWindow;
@@ -185,7 +181,7 @@ NSMutableArray *rectInWindowArray;
     
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:view.image];
-    tempImageView.frame = view.frame;
+    [tempImageView setFrame:CGRectMake(view.frame.origin.x-index*self.bounds.size.width, view.frame.origin.y, view.frame.size.width, view.frame.size.height)];
     [self.superview.superview.superview addSubview:tempImageView];
     CGRect rectInWindow = CGRectFromString(rectInWindowArray[index]);
     

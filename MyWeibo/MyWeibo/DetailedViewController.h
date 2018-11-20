@@ -29,9 +29,6 @@
 @property (nonatomic, strong) UITableView* table_repost;
 @property (nonatomic, strong) UITableView* table_comment;
 @property (nonatomic, strong) UITableView* table_like;
-@property (nonatomic, strong) UIView* view_comment;
-@property (nonatomic, strong) UIView* view_repost;
-@property (nonatomic, strong) UIView* view_like;
 @property (nonatomic, strong) UILabel* label_comment;
 
 @end

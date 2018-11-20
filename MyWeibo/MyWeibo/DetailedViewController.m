@@ -130,27 +130,27 @@ NSString *const zero = @"0";
     _bottomScrollView.tag = 2;
     [_bottomScrollView setBackgroundColor: [UIColor whiteColor]];
     
-    _view_repost = [[UIView alloc]initWithFrame:CGRectMake(0, 0, mainWidth, 300)];
-    _label_comment = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 200, 20)];
+    _label_comment = [[UILabel alloc]initWithFrame:CGRectMake(80, 100, 200, 20)];
     [_label_comment setText:@"Come to share great content"];
+    [_label_comment setTextColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0]];
     _label_comment.font = [UIFont systemFontOfSize:12];
     
-    _view_comment = [[UIView alloc]initWithFrame:CGRectMake(mainWidth, 0, mainWidth, 300)];
     
-    _view_like = [[UIView alloc]initWithFrame:CGRectMake(mainWidth*2, 0, mainWidth, 300)];
-    
+    NSString *repostStr = [[NSString alloc] initWithFormat:@"Repost %@", self.post.repostNum];
     _btn_repost = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, mainWidth/5*3/2, 30)];
-    [_btn_repost setTitle:@"Repost" forState:UIControlStateNormal];
+    [_btn_repost setTitle:repostStr forState:UIControlStateNormal];
     [_btn_repost setTitleColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0] forState:UIControlStateNormal];
     _btn_repost.titleLabel.font = [UIFont systemFontOfSize:12];
     
+    NSString *commentStr = [[NSString alloc] initWithFormat:@"Comments %@", self.post.commentNum];
     _btn_comment = [[UIButton alloc]initWithFrame:CGRectMake(mainWidth/5*3/2, 0, mainWidth/5*3/2, 30)];
-    [_btn_comment setTitle:@"Comments" forState:UIControlStateNormal];
+    [_btn_comment setTitle:commentStr forState:UIControlStateNormal];
     [_btn_comment setTitleColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0] forState:UIControlStateNormal];
     _btn_comment.titleLabel.font = [UIFont systemFontOfSize:12];
     
+    NSString *likeStr = [[NSString alloc] initWithFormat:@"Likes %@", self.post.likeNum];
     _btn_like = [[UIButton alloc]initWithFrame:CGRectMake(mainWidth/5*4, 0, mainWidth/5, 30)];
-    [_btn_like setTitle:@"Likes" forState:UIControlStateNormal];
+    [_btn_like setTitle:likeStr forState:UIControlStateNormal];
     [_btn_like setTitleColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0] forState:UIControlStateNormal];
     _btn_like.titleLabel.font = [UIFont systemFontOfSize:12];
     
@@ -176,24 +176,24 @@ NSString *const zero = @"0";
     self.table_like.delegate = self;
     self.table_like.dataSource = self;
     
-    [_view_comment addSubview:_label_comment];
-    [_view_repost addSubview:_label_comment];
-    [_view_like addSubview:_label_comment];
     
     if(self.reposts.count == 0){
-        [_bottomScrollView addSubview:_view_repost];
+        [_label_comment setFrame:CGRectMake(_label_comment.frame.origin.x, 100, 200, 20)];
+        [_bottomScrollView addSubview:_label_comment];
     }else{
         [_bottomScrollView addSubview:self.table_repost];
     }
     
     if(self.comments.count == 0){
-        [_bottomScrollView addSubview:_view_comment];
+        [_label_comment setFrame:CGRectMake(_label_comment.frame.origin.x+mainWidth, 100, 200, 20)];
+        [_bottomScrollView addSubview:_label_comment];
     }else{
         [_bottomScrollView addSubview:self.table_comment];
     }
     
     if(self.likes.count == 0){
-        [_bottomScrollView addSubview:_view_like];
+        [_label_comment setFrame:CGRectMake(_label_comment.frame.origin.x+mainWidth*2, 100, 200, 20)];
+        [_bottomScrollView addSubview:_label_comment];
     }else{
         [_bottomScrollView addSubview:self.table_like];
     }

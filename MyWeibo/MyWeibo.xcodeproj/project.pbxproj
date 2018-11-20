@@ -32,6 +32,7 @@
 		B89380C421A0F351000CC6A9 /* LikeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380C221A0F351000CC6A9 /* LikeTableViewCell.m */; };
 		B89380C521A0F351000CC6A9 /* LikeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89380C321A0F351000CC6A9 /* LikeTableViewCell.xib */; };
 		B89380C821A483DE000CC6A9 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380C721A483DE000CC6A9 /* DetailedViewController.m */; };
+		B89380CB21A4C30E000CC6A9 /* MyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380CA21A4C30E000CC6A9 /* MyImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		B89380C321A0F351000CC6A9 /* LikeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeTableViewCell.xib; sourceTree = "<group>"; };
 		B89380C621A483DE000CC6A9 /* DetailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
 		B89380C721A483DE000CC6A9 /* DetailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
+		B89380C921A4C30E000CC6A9 /* MyImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyImageView.h; sourceTree = "<group>"; };
+		B89380CA21A4C30E000CC6A9 /* MyImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				B89380C321A0F351000CC6A9 /* LikeTableViewCell.xib */,
 				B89380C621A483DE000CC6A9 /* DetailedViewController.h */,
 				B89380C721A483DE000CC6A9 /* DetailedViewController.m */,
+				B89380C921A4C30E000CC6A9 /* MyImageView.h */,
+				B89380CA21A4C30E000CC6A9 /* MyImageView.m */,
 			);
 			path = MyWeibo;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				B89380C421A0F351000CC6A9 /* LikeTableViewCell.m in Sources */,
 				B89380C021A0F23D000CC6A9 /* likeItem.m in Sources */,
 				B893803B218A5CEE000CC6A9 /* ViewController.m in Sources */,
+				B89380CB21A4C30E000CC6A9 /* MyImageView.m in Sources */,
 				B8938046218A5CEE000CC6A9 /* main.m in Sources */,
 				B89380AC219CE6AA000CC6A9 /* CommentTableViewCell.m in Sources */,
 				B893807521950582000CC6A9 /* TableCellTableViewCell.m in Sources */,
