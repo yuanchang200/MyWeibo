@@ -11,6 +11,7 @@
 #import "TableCellTableViewCell.h"
 #import "LikeTableViewCell.h"
 #import "commentItem.h"
+#import "MyImageView.h"
 
 #define UI_SCREEN_WIDTH 300
 
@@ -21,6 +22,7 @@ CGFloat leadingSpace_d = 8;
 CGFloat imageSpace_d = 4;
 CGFloat originY_d;
 CGFloat contentLabelOriginY_d = 50;
+NSMutableArray *rectInWindowArray_d;
 
 NSString *const commentCellIdentifier = @"cellID3";
 NSString *const likeCellIdentifier = @"cellID4";
@@ -30,7 +32,9 @@ NSString *const zero = @"0";
 
 @end
 
-@implementation DetailedViewController
+@implementation DetailedViewController{
+    UIScrollView *background_d;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -107,7 +111,14 @@ NSString *const zero = @"0";
             if (i * column_d + j < self.post.postImgs.count) {
                 NSString *imageName = self.post.postImgs[i * column_d + j];
                 UIImage *image = [UIImage imageNamed:imageName];
-                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(leadingSpace_d + j * (imageSpace_d + imageWidth_d), originY_d + leadingSpace_d + i * (imageSpace_d + imageWidth_d), imageWidth_d, imageWidth_d)];
+                MyImageView *imageView = [[MyImageView alloc] initWithFrame:CGRectMake(leadingSpace_d + j * (imageSpace_d + imageWidth_d), originY_d + leadingSpace_d + i * (imageSpace_d + imageWidth_d), imageWidth_d, imageWidth_d)];
+                
+                imageView.userInteractionEnabled = YES;
+                imageView.i = i;
+                imageView.j = j;
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+                [imageView addGestureRecognizer:tapGesture];
+                
                 [imageView setImage:image];
                 [_detailPostView addSubview:imageView];
             }
@@ -214,6 +225,81 @@ NSString *const zero = @"0";
     [_btn_comment addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_btn_like addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+- (void)tapAction:(id)sender{
+    rectInWindowArray_d = [NSMutableArray array];
+    
+    UITapGestureRecognizer *tap = (UITapGestureRecognizer *)sender;
+    MyImageView *view = (MyImageView *)tap.view;
+    
+    UIWindow* window = [UIApplication sharedApplication].keyWindow;
+    CGRect rectInWindow = [view convertRect:view.bounds toView:window];
+    
+    for(int i = 0; i < row_d; i++){
+        for(int j = 0; j < column_d; j++){
+            if(i*column_d+j<self.post.postImgs.count){
+                CGRect tmpRect = CGRectMake(rectInWindow.origin.x+(j-view.j)*(imageSpace_d+imageWidth_d), rectInWindow.origin.y+(i-view.i)*(imageSpace_d+imageWidth_d), imageWidth_d, imageWidth_d);
+                [rectInWindowArray_d addObject:NSStringFromCGRect(tmpRect)];
+            }
+        }
+    }
+    
+    
+    CGFloat mainWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat mainHeight = [UIScreen mainScreen].bounds.size.height;
+    UIScrollView *imageScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, mainWidth, mainHeight)];
+    background_d = imageScrollView;
+    imageScrollView.delegate = self;
+    imageScrollView.pagingEnabled = YES;
+    imageScrollView.showsHorizontalScrollIndicator = NO;
+    imageScrollView.bounces = YES;
+    imageScrollView.contentSize = CGSizeMake(mainWidth*self.post.postImgs.count, mainHeight);
+    [imageScrollView setBackgroundColor:[UIColor blackColor]];
+    //[self.superview.superview.superview addSubview:imageScrollView];
+    
+    for (int i=0;i<self.post.postImgs.count;i++){
+        UIImageView *largeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(mainWidth*i+leadingSpace_d, 100, mainWidth-leadingSpace_d*2, 360)];
+        [largeImageView setImage:[UIImage imageNamed:self.post.postImgs[i]]];
+        [imageScrollView addSubview:largeImageView];
+        largeImageView.userInteractionEnabled = YES;
+        largeImageView.tag = i;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeView:)];
+        [largeImageView addGestureRecognizer:tapGesture];
+    }
+    imageScrollView.contentOffset = CGPointMake(mainWidth*(view.i*column_d+view.j), 0);
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:view.image];
+    tempImageView.frame = rectInWindow;
+    [self.view.superview addSubview:tempImageView];
+    
+    [UIView animateWithDuration:0.2f animations:^{
+        tempImageView.frame = CGRectMake(leadingSpace_d, 100, mainWidth-leadingSpace_d*2, 360);
+    } completion:^(BOOL finished){
+        [tempImageView removeFromSuperview];
+        [self.view.superview addSubview:imageScrollView];
+    }];
+}
+
+- (void)closeView:(id)sender{
+    [background_d removeFromSuperview];
+    
+    UITapGestureRecognizer *tap = (UITapGestureRecognizer *)sender;
+    UIImageView *view = (UIImageView *)tap.view;
+    NSInteger index = view.tag;
+    
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:view.image];
+    [tempImageView setFrame:CGRectMake(view.frame.origin.x-index*self.view.bounds.size.width, view.frame.origin.y, view.frame.size.width, view.frame.size.height)];
+    [self.view.superview addSubview:tempImageView];
+    CGRect rectInWindow = CGRectFromString(rectInWindowArray_d[index]);
+    
+    [UIView animateWithDuration:0.2f animations:^{
+        tempImageView.frame = rectInWindow;
+    } completion:^(BOOL finished){
+        [tempImageView removeFromSuperview];
+    }];
+}
+
 
 - (void)btnClicked:(UIButton*)sender{
     NSInteger tag = [sender tag];
