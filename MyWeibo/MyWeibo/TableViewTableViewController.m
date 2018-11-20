@@ -11,7 +11,8 @@
 #import "postItem.h"
 #import "commentItem.h"
 #import "likeItem.h"
-#import "DetailTableViewController.h"
+#import "DetailedViewController.h"
+//#import "DetailTableViewController.h"
 #define UI_SCREEN_WIDTH 300
 
 @interface TableViewTableViewController ()
@@ -171,7 +172,13 @@ CGFloat bottomButtonHeight = 20;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DetailTableViewController *dViewController = [[DetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    /*DetailTableViewController *dViewController = [[DetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    dViewController.post = self.posts[indexPath.section];
+    dViewController.comments = self.comments[indexPath.section];
+    dViewController.reposts = self.reposts[indexPath.section];
+    dViewController.likes = self.likes[indexPath.section];*/
+    
+    DetailedViewController *dViewController = [DetailedViewController alloc];
     dViewController.post = self.posts[indexPath.section];
     dViewController.comments = self.comments[indexPath.section];
     dViewController.reposts = self.reposts[indexPath.section];
