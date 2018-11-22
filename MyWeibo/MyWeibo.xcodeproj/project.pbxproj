@@ -33,6 +33,9 @@
 		B89380C521A0F351000CC6A9 /* LikeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89380C321A0F351000CC6A9 /* LikeTableViewCell.xib */; };
 		B89380C821A483DE000CC6A9 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380C721A483DE000CC6A9 /* DetailedViewController.m */; };
 		B89380CB21A4C30E000CC6A9 /* MyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380CA21A4C30E000CC6A9 /* MyImageView.m */; };
+		B89380D721A611C5000CC6A9 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380D621A611C5000CC6A9 /* MessageViewController.m */; };
+		B89380DA21A6129F000CC6A9 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380D921A6129F000CC6A9 /* DiscoverViewController.m */; };
+		B89380DD21A61329000CC6A9 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89380DC21A61329000CC6A9 /* MeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,12 @@
 		B89380C721A483DE000CC6A9 /* DetailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
 		B89380C921A4C30E000CC6A9 /* MyImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyImageView.h; sourceTree = "<group>"; };
 		B89380CA21A4C30E000CC6A9 /* MyImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyImageView.m; sourceTree = "<group>"; };
+		B89380D521A611A2000CC6A9 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageViewController.h; path = /Users/zn/ios/MyWeibo/MyWeibo/MessageViewController.h; sourceTree = "<absolute>"; };
+		B89380D621A611C5000CC6A9 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		B89380D821A6129F000CC6A9 /* DiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
+		B89380D921A6129F000CC6A9 /* DiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
+		B89380DB21A61329000CC6A9 /* MeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		B89380DC21A61329000CC6A9 /* MeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +193,12 @@
 				B89380C721A483DE000CC6A9 /* DetailedViewController.m */,
 				B89380C921A4C30E000CC6A9 /* MyImageView.h */,
 				B89380CA21A4C30E000CC6A9 /* MyImageView.m */,
+				B89380D521A611A2000CC6A9 /* MessageViewController.h */,
+				B89380D621A611C5000CC6A9 /* MessageViewController.m */,
+				B89380D821A6129F000CC6A9 /* DiscoverViewController.h */,
+				B89380D921A6129F000CC6A9 /* DiscoverViewController.m */,
+				B89380DB21A61329000CC6A9 /* MeViewController.h */,
+				B89380DC21A61329000CC6A9 /* MeViewController.m */,
 			);
 			path = MyWeibo;
 			sourceTree = "<group>";
@@ -385,11 +400,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B89380852197AD2B000CC6A9 /* TabBarController.m in Sources */,
+				B89380DA21A6129F000CC6A9 /* DiscoverViewController.m in Sources */,
 				B893808221963B58000CC6A9 /* postItem.m in Sources */,
 				B89380882197AD82000CC6A9 /* HomeNavigationController.m in Sources */,
 				B89380C421A0F351000CC6A9 /* LikeTableViewCell.m in Sources */,
 				B89380C021A0F23D000CC6A9 /* likeItem.m in Sources */,
 				B893803B218A5CEE000CC6A9 /* ViewController.m in Sources */,
+				B89380D721A611C5000CC6A9 /* MessageViewController.m in Sources */,
 				B89380CB21A4C30E000CC6A9 /* MyImageView.m in Sources */,
 				B8938046218A5CEE000CC6A9 /* main.m in Sources */,
 				B89380AC219CE6AA000CC6A9 /* CommentTableViewCell.m in Sources */,
@@ -398,6 +415,7 @@
 				B89380A2219CD664000CC6A9 /* commentItem.m in Sources */,
 				B8938038218A5CEE000CC6A9 /* AppDelegate.m in Sources */,
 				B89380C821A483DE000CC6A9 /* DetailedViewController.m in Sources */,
+				B89380DD21A61329000CC6A9 /* MeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

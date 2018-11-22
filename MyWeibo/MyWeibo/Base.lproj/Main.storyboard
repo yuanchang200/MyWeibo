@@ -44,14 +44,17 @@
         <!--Me-->
         <scene sceneID="EFd-Cb-NWD">
             <objects>
-                <viewController id="sg1-Tg-Ld0" sceneMemberID="viewController">
+                <viewController id="sg1-Tg-Ld0" customClass="MeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bVr-X2-tTW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="1zv-PE-M2k"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" image="profile" id="tAG-uF-DKX"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="profile" selectedImage="profile-highlighted" id="tAG-uF-DKX"/>
+                    <connections>
+                        <outlet property="meTabBarItem" destination="tAG-uF-DKX" id="VOy-AO-ODv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Io-4X-Vdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +63,7 @@
         <!--Message-->
         <scene sceneID="5Ba-5c-9uB">
             <objects>
-                <viewController id="p8i-qP-Ov6" sceneMemberID="viewController">
+                <viewController id="p8i-qP-Ov6" customClass="MessageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eg9-C3-ZaG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,6 +71,9 @@
                         <viewLayoutGuide key="safeArea" id="vsJ-ji-q7F"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Message" image="message.png" selectedImage="message-highlighted.png" id="nx6-VO-mhV"/>
+                    <connections>
+                        <outlet property="messageTabBarItem" destination="nx6-VO-mhV" id="WnN-Qb-rQz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28B-4I-S3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,7 +102,7 @@
         <!--Discover-->
         <scene sceneID="8u4-jR-xgT">
             <objects>
-                <viewController id="ONO-MS-yth" sceneMemberID="viewController">
+                <viewController id="ONO-MS-yth" customClass="DiscoverViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1wL-Dp-ejD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,6 +110,9 @@
                         <viewLayoutGuide key="safeArea" id="rED-Ut-dQq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="search" selectedImage="search-highlighted" id="kr7-wq-33D"/>
+                    <connections>
+                        <outlet property="discoverTabBarItem" destination="kr7-wq-33D" id="vIc-8V-fLS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iE6-Ei-H1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,6 +130,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="homeNavBar" destination="fCH-0i-m6k" id="yo9-Ad-qNP"/>
                         <outlet property="homeTabItem" destination="GJB-y6-yXg" id="i8f-S0-JIO"/>
                         <segue destination="yw6-fi-jP7" kind="relationship" relationship="rootViewController" id="F3N-ib-ZI8"/>
                     </connections>
@@ -135,6 +145,7 @@
         <image name="message-highlighted.png" width="60" height="60"/>
         <image name="message.png" width="60" height="60"/>
         <image name="profile" width="40" height="40"/>
+        <image name="profile-highlighted" width="40" height="40"/>
         <image name="search" width="40" height="40"/>
         <image name="search-highlighted" width="40" height="40"/>
     </resources>

@@ -26,6 +26,7 @@
     UIImage *selectImage = [[UIImage imageNamed:@"homepage-highlighted"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     _homeTabItem.selectedImage = selectImage;
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -108,6 +108,9 @@ CGFloat bottomButtonHeight = 20;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.title = @"All Following";
+    
     NSString *cellID = @"cellID";
     [_homeTableView registerNib:[UINib nibWithNibName:@"TableCellTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     self.tableView.sectionFooterHeight = 1.0;
@@ -118,6 +121,9 @@ CGFloat bottomButtonHeight = 20;
     TableCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellID];
     postItem *item = self.posts[indexPath.section];
     cell.singlePostItem = item;
+    cell.reposts = self.reposts[indexPath.section];
+    cell.comments = self.comments[indexPath.section];
+    cell.likes = self.likes[indexPath.section];
     
     CGFloat contentHeight = [TableCellTableViewCell getLabelHeightWithText:cell.singlePostItem.content Width:UI_SCREEN_WIDTH - leadingSpace_t * 2 Font:[UIFont systemFontOfSize:15]];
     originY_t = contentLabelOriginY_t + contentHeight + leadingSpace_t;
@@ -172,17 +178,12 @@ CGFloat bottomButtonHeight = 20;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    /*DetailTableViewController *dViewController = [[DetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    dViewController.post = self.posts[indexPath.section];
-    dViewController.comments = self.comments[indexPath.section];
-    dViewController.reposts = self.reposts[indexPath.section];
-    dViewController.likes = self.likes[indexPath.section];*/
-    
     DetailedViewController *dViewController = [DetailedViewController alloc];
     dViewController.post = self.posts[indexPath.section];
     dViewController.comments = self.comments[indexPath.section];
     dViewController.reposts = self.reposts[indexPath.section];
     dViewController.likes = self.likes[indexPath.section];
+    dViewController.tag = 0;
     [self.navigationController pushViewController:dViewController animated:YES];
 }
 

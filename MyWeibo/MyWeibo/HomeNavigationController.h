@@ -10,5 +10,6 @@
 
 @interface HomeNavigationController : UINavigationController
 @property (weak, nonatomic) IBOutlet UITabBarItem *homeTabItem;
+@property (weak, nonatomic) IBOutlet UINavigationBar *homeNavBar;
 
 @end

@@ -31,4 +31,6 @@
 @property (nonatomic, strong) UITableView* table_like;
 @property (nonatomic, strong) UILabel* label_comment;
 
+@property (nonatomic, nonatomic) NSInteger tag;
+
 @end

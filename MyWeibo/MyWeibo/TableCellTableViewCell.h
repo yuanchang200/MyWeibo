@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 
 @property (nonatomic,strong) postItem *singlePostItem;
+@property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong) NSArray *reposts;
+@property (nonatomic, strong) NSArray *likes;
+
 
 + (CGFloat)getLabelHeightWithText: (NSString *)text Width:(CGFloat)width Font:(UIFont *)font;
 @end

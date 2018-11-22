@@ -224,6 +224,29 @@ NSString *const zero = @"0";
     [_btn_repost addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_btn_comment addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_btn_like addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    if(self.tag == 11){
+        _outerScrollView.contentOffset = CGPointMake(0, _detailCommentView.frame.origin.y - 80);
+        _imageLine.center = CGPointMake(_btn_repost.center.x, _imageLine.center.y);
+        _bottomScrollView.contentOffset = CGPointMake(0, 0);
+        [_btn_repost setTitleColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [_btn_comment setTitleColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [_btn_like setTitleColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0] forState:UIControlStateNormal];
+    }else if(self.tag == 12){
+        _outerScrollView.contentOffset = CGPointMake(0, _detailCommentView.frame.origin.y - 80);
+        _imageLine.center = CGPointMake(_btn_comment.center.x, _imageLine.center.y);
+        _bottomScrollView.contentOffset = CGPointMake(self.view.bounds.size.width, 0);
+        [_btn_repost setTitleColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [_btn_comment setTitleColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [_btn_like setTitleColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0] forState:UIControlStateNormal];
+    }else if(self.tag == 13){
+        _outerScrollView.contentOffset = CGPointMake(0, _detailCommentView.frame.origin.y - 80);
+        _imageLine.center = CGPointMake(_btn_like.center.x, _imageLine.center.y);
+        _bottomScrollView.contentOffset = CGPointMake(self.view.bounds.size.width*2, 0);
+        [_btn_repost setTitleColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [_btn_comment setTitleColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [_btn_like setTitleColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    }
 }
 
 - (void)tapAction:(id)sender{

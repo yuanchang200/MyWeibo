@@ -9,6 +9,7 @@
 #import "TableCellTableViewCell.h"
 #import "postItem.h"
 #import "MyImageView.h"
+#import "DetailedViewController.h"
 #define UI_SCREEN_WIDTH 300
 
 @interface TableCellTableViewCell()<UIScrollViewDelegate>
@@ -36,6 +37,24 @@ NSMutableArray *rectInWindowArray;
     //圆形头像
     _headImage.layer.masksToBounds = YES;
     _headImage.layer.cornerRadius = 42/2;
+    
+    _repostBtn.tag = 11;
+    [_repostBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_repostBtn addTarget:self action:@selector(btnClickedDown:) forControlEvents:UIControlEventTouchDown];
+    [_repostBtn addTarget:self action:@selector(btnClickedUp:) forControlEvents:UIControlEventTouchUpInside];
+    [_repostBtn addTarget:self action:@selector(btnClickedUp:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    _commentBtn.tag = 12;
+    [_commentBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_commentBtn addTarget:self action:@selector(btnClickedDown:) forControlEvents:UIControlEventTouchDown];
+    [_commentBtn addTarget:self action:@selector(btnClickedUp:) forControlEvents:UIControlEventTouchUpInside];
+    [_commentBtn addTarget:self action:@selector(btnClickedUp:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    _likeBtn.tag = 13;
+    [_likeBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_likeBtn addTarget:self action:@selector(btnClickedDown:) forControlEvents:UIControlEventTouchDown];
+    [_likeBtn addTarget:self action:@selector(btnClickedUp:) forControlEvents:UIControlEventTouchUpInside];
+    [_likeBtn addTarget:self action:@selector(btnClickedUp:) forControlEvents:UIControlEventTouchUpOutside];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -64,9 +83,13 @@ NSMutableArray *rectInWindowArray;
     
     CGFloat contentHeight = [TableCellTableViewCell getLabelHeightWithText:self.postLabel.text Width:UI_SCREEN_WIDTH - leadingSpace * 2 Font:[UIFont systemFontOfSize:15]];
     [self.postLabel setFrame:CGRectMake(7, 58, 305, contentHeight + 5)];
-    [self.repostBtn setTitle:_singlePostItem.repostNum forState:UIControlStateNormal];
-    [self.commentBtn setTitle:_singlePostItem.commentNum forState:UIControlStateNormal];
-    [self.likeBtn setTitle:_singlePostItem.likeNum forState:UIControlStateNormal];
+    
+    NSString *repostStr = [[NSString alloc] initWithFormat:@"Repost %@", _singlePostItem.repostNum];
+    [self.repostBtn setTitle:repostStr forState:UIControlStateNormal];
+    NSString *commentStr = [[NSString alloc] initWithFormat:@"Comments %@", _singlePostItem.commentNum];
+    [self.commentBtn setTitle:commentStr forState:UIControlStateNormal];
+    NSString *likeStr = [[NSString alloc] initWithFormat:@"Likes %@", _singlePostItem.likeNum];
+    [self.likeBtn setTitle:likeStr forState:UIControlStateNormal];
     
     if (_singlePostItem.postImgs.count == 1){
         column = 1;
@@ -190,6 +213,42 @@ NSMutableArray *rectInWindowArray;
     } completion:^(BOOL finished){
         [tempImageView removeFromSuperview];
     }];
+}
+
+- (void)btnClicked:(UIButton*)sender{
+    DetailedViewController *dViewController = [DetailedViewController alloc];
+    dViewController.post = self.singlePostItem;
+    dViewController.comments = self.comments;
+    dViewController.reposts = self.reposts;
+    dViewController.likes = self.likes;
+    dViewController.tag = sender.tag;
+    
+    id object = [self nextResponder];
+    while(![object isKindOfClass:[UIViewController class]]&&object!=nil){
+        object = [object nextResponder];
+    }
+    UIViewController *superController = (UIViewController*)object;
+    [superController.navigationController pushViewController:dViewController animated:YES];
+}
+
+- (void)btnClickedDown:(UIButton*)sender{
+    if(sender.tag == 11){
+        [_repostBtn setBackgroundColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0]];
+    }else if(sender.tag == 12){
+        [_commentBtn setBackgroundColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0]];
+    }else if(sender.tag == 13){
+        [_likeBtn setBackgroundColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0]];
+    }
+}
+
+- (void)btnClickedUp:(UIButton*)sender{
+    if(sender.tag == 11){
+        [_repostBtn setBackgroundColor:[UIColor whiteColor]];
+    }else if(sender.tag == 12){
+        [_commentBtn setBackgroundColor:[UIColor whiteColor]];
+    }else if(sender.tag == 13){
+        [_likeBtn setBackgroundColor:[UIColor whiteColor]];
+    }
 }
 
 @end
