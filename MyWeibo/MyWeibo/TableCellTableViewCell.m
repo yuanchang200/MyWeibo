@@ -108,7 +108,10 @@ NSMutableArray *rectInWindowArray;
     }else if (_singlePostItem.postImgs.count == 2 || _singlePostItem.postImgs.count == 4){
         column = 2;
         imageWidth = (UI_SCREEN_WIDTH - (leadingSpace + imageSpace) * 2) / 3;
-    }else {
+    }else if(_singlePostItem.postImgs.count == 0){
+        column = 0;
+    }
+    else {
         column = 3;
         imageWidth = (UI_SCREEN_WIDTH - (leadingSpace + imageSpace) * 2) / 3;
     }
