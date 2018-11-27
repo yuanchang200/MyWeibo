@@ -28,7 +28,6 @@ CGFloat originY;
 CGFloat contentLabelOriginY = 50;
 NSMutableArray *rectInWindowArray;
 
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -39,8 +38,11 @@ NSMutableArray *rectInWindowArray;
     _headImage.layer.cornerRadius = 42/2;
     
     _repostBtn.tag = 11;
+    //显示转发tab
     [_repostBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    //按钮颜色变灰
     [_repostBtn addTarget:self action:@selector(btnClickedDown:) forControlEvents:UIControlEventTouchDown];
+    //按钮颜色变白
     [_repostBtn addTarget:self action:@selector(btnClickedUp:) forControlEvents:UIControlEventTouchUpInside];
     [_repostBtn addTarget:self action:@selector(btnClickedUp:) forControlEvents:UIControlEventTouchUpOutside];
     
@@ -67,7 +69,13 @@ NSMutableArray *rectInWindowArray;
     CGSize size = CGSizeMake(width, MAXFLOAT);
     CGSize returnSize;
     
+    //属性字典
     NSDictionary *attribute = @{ NSFontAttributeName : font};
+    
+    //size: text的宽高限制
+    //options: NSStringDrawingTruncatesLastVisibleLine 如果文本内容超出指定的矩形限制，文本将被截去并在最后一个字符后加上省略号
+    //         NSStringDrawingUsesLineFragmentOrigin 绘制文本时使用 line fragment origin 而不是 baseline origin
+    //         NSStringDrawingUsesFontLeading 计算行高时使用行间距
     returnSize = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
     
     return returnSize.height;
@@ -91,6 +99,9 @@ NSMutableArray *rectInWindowArray;
     NSString *likeStr = [[NSString alloc] initWithFormat:@"Likes %@", _singlePostItem.likeNum];
     [self.likeBtn setTitle:likeStr forState:UIControlStateNormal];
     
+    //计算图片的列数和图片宽度（设定图片宽高一致）
+    //leadingSpace 图片距屏幕边缘的距离
+    //imageSpace 图片之间的距离
     if (_singlePostItem.postImgs.count == 1){
         column = 1;
         imageWidth = UI_SCREEN_WIDTH * 0.55;
@@ -102,8 +113,10 @@ NSMutableArray *rectInWindowArray;
         imageWidth = (UI_SCREEN_WIDTH - (leadingSpace + imageSpace) * 2) / 3;
     }
     
+    //originY 图片的起始高度
     originY = contentLabelOriginY + contentHeight + leadingSpace;
     
+    //计算行数
     if(column != 0){
         if(_singlePostItem.postImgs.count % column == 0){
             row = _singlePostItem.postImgs.count / column;
@@ -117,6 +130,7 @@ NSMutableArray *rectInWindowArray;
             if (i * column + j < _singlePostItem.postImgs.count) {
                 NSString *imageName = _singlePostItem.postImgs[i * column + j];
                 UIImage *image = [UIImage imageNamed:imageName];
+                //MyImageView 作用是将图片的位置存起来，用于tap手势之后图片放大的缩小的动画
                 MyImageView *imageView = [[MyImageView alloc] initWithFrame:CGRectMake(leadingSpace + j * (imageSpace + imageWidth), originY + leadingSpace + i * (imageSpace + imageWidth), imageWidth, imageWidth)];
                 
                 imageView.i = i;
@@ -136,12 +150,16 @@ NSMutableArray *rectInWindowArray;
 }
 
 - (void)tapAction:(id)sender{
+    //存放了该cell中所有image相对于window的位置
     rectInWindowArray = [NSMutableArray array];
     
     UITapGestureRecognizer *tap = (UITapGestureRecognizer *)sender;
     MyImageView *view = (MyImageView *)tap.view;
     
+    //获取应用程序的主窗口
     UIWindow* window = [UIApplication sharedApplication].keyWindow;
+    //将view的frame转换到主窗口坐标系中
+    //这里用frame不正确，用bounds正确，初步理解原因为frame是相对于父视图原点的坐标，bounds是相对于自己的原点坐标
     CGRect rectInWindow = [view convertRect:view.bounds toView:window];
     
     if(view.column == 1){
@@ -153,6 +171,7 @@ NSMutableArray *rectInWindowArray;
     for(int i = 0; i < view.row; i++){
         for(int j = 0; j < view.column; j++){
             if(i*view.column+j<view.count){
+                //根据点击的图片的位置计算出其他图片的rectInWindow
                 CGRect tmpRect = CGRectMake(rectInWindow.origin.x+(j-view.j)*(imageSpace+imageWidth), rectInWindow.origin.y+(i-view.i)*(imageSpace+imageWidth), imageWidth, imageWidth);
                 [rectInWindowArray addObject:NSStringFromCGRect(tmpRect)];
             }
@@ -181,8 +200,10 @@ NSMutableArray *rectInWindowArray;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeView:)];
         [largeImageView addGestureRecognizer:tapGesture];
     }
+    //根据点击图片的i, j设定scrollView显示的位置
     imageScrollView.contentOffset = CGPointMake(mainWidth*(view.i*view.column+view.j), 0);
     
+    //实现点击放大的动画
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:view.image];
     tempImageView.frame = rectInWindow;
     [self.superview.superview.superview addSubview:tempImageView];
@@ -200,7 +221,7 @@ NSMutableArray *rectInWindowArray;
     
     UITapGestureRecognizer *tap = (UITapGestureRecognizer *)sender;
     UIImageView *view = (UIImageView *)tap.view;
-    NSInteger index = view.tag;
+    NSInteger index = view.tag;//tag是图片在imageArray里的index
     
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:view.image];
@@ -208,6 +229,7 @@ NSMutableArray *rectInWindowArray;
     [self.superview.superview.superview addSubview:tempImageView];
     CGRect rectInWindow = CGRectFromString(rectInWindowArray[index]);
     
+    //点击缩小动画
     [UIView animateWithDuration:0.2f animations:^{
         tempImageView.frame = rectInWindow;
     } completion:^(BOOL finished){
@@ -223,6 +245,7 @@ NSMutableArray *rectInWindowArray;
     dViewController.likes = self.likes;
     dViewController.tag = sender.tag;
     
+    //在非ViewController里pushViewController的方法:找到下一个viewController
     id object = [self nextResponder];
     while(![object isKindOfClass:[UIViewController class]]&&object!=nil){
         object = [object nextResponder];

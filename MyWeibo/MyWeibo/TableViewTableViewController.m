@@ -12,7 +12,6 @@
 #import "commentItem.h"
 #import "likeItem.h"
 #import "DetailedViewController.h"
-//#import "DetailTableViewController.h"
 #define UI_SCREEN_WIDTH 300
 
 @interface TableViewTableViewController ()
@@ -29,8 +28,10 @@ CGFloat imageSpace_t = 4;
 CGFloat originY_t;
 CGFloat contentLabelOriginY_t = 50;
 CGFloat bottomButtonHeight = 20;
+NSString *const cellID = @"cellID";
 
-//load posts from posts.plist
+//懒加载
+//NSBundle 对象指代相应应用程序下的所有可用的文件资源
 -(NSArray *)posts{
     if(_posts == nil) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"posts" ofType:@"plist"];
@@ -44,7 +45,7 @@ CGFloat bottomButtonHeight = 20;
     }
     return _posts;
 }
-//load comments from comments.plist
+
 -(NSArray *)comments{
     if(_comments == nil) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"comments" ofType:@"plist"];
@@ -63,7 +64,6 @@ CGFloat bottomButtonHeight = 20;
     return _comments;
 }
 
-//load reposts from reposts.plist
 - (NSArray *)reposts{
     if(_reposts == nil){
         NSString *path = [[NSBundle mainBundle] pathForResource:@"reposts" ofType:@"plist"];
@@ -81,7 +81,6 @@ CGFloat bottomButtonHeight = 20;
     }
     return _reposts;
 }
-//load likes from likes.plist
 - (NSArray *)likes{
     if(_likes == nil){
         NSString *path = [[NSBundle mainBundle] pathForResource:@"likes" ofType:@"plist"];
@@ -111,20 +110,27 @@ CGFloat bottomButtonHeight = 20;
     
     self.navigationItem.title = @"All Following";
     
-    NSString *cellID = @"cellID";
-    [_homeTableView registerNib:[UINib nibWithNibName:@"TableCellTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+    //[_homeTableView registerNib:[UINib nibWithNibName:@"TableCellTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     self.tableView.sectionFooterHeight = 1.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellID = @"cellID";
-    TableCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellID];
+    //cell重用导致subviews混乱的解决办法
+    NSString *cellIdentifier = [NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row];
+    
+    TableCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellIdentifier];
+    if(cell == nil){
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TableCellTableViewCell" owner:self options:nil] lastObject];
+        //cell = [[TableCellTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    //TableCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellID];
     postItem *item = self.posts[indexPath.section];
     cell.singlePostItem = item;
     cell.reposts = self.reposts[indexPath.section];
     cell.comments = self.comments[indexPath.section];
     cell.likes = self.likes[indexPath.section];
     
+    //动态调整cell的高度
     CGFloat contentHeight = [TableCellTableViewCell getLabelHeightWithText:cell.singlePostItem.content Width:UI_SCREEN_WIDTH - leadingSpace_t * 2 Font:[UIFont systemFontOfSize:15]];
     originY_t = contentLabelOriginY_t + contentHeight + leadingSpace_t;
     if (cell.singlePostItem.postImgs.count == 1){
@@ -143,6 +149,8 @@ CGFloat bottomButtonHeight = 20;
         }else{
             row_t = cell.singlePostItem.postImgs.count / column_t + 1;
         }
+    }else{
+        
     }
     
     CGRect rect = cell.frame;

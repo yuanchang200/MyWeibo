@@ -27,6 +27,38 @@
 	<array>
 		<dict>
 			<key>time</key>
+			<string>11-27 05:05</string>
+			<key>content</key>
+			<string>哇哦，小兔兔好萌好嫩，红烧如何</string>
+			<key>nickname</key>
+			<string>如此女子x-m</string>
+			<key>icon</key>
+			<string>xmj_comment1.jpg</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>11-27 05:05</string>
+			<key>content</key>
+			<string>为什么人家的兔叽那么干净</string>
+			<key>nickname</key>
+			<string>体力不支伴间歇脑短路少女</string>
+			<key>icon</key>
+			<string>xmj_comment2.jpg</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>11-27 05:02</string>
+			<key>content</key>
+			<string>哇 这是兔子啊</string>
+			<key>nickname</key>
+			<string>大大大大大牌</string>
+			<key>icon</key>
+			<string>xmj_comment3</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>time</key>
 			<string>10-31 22:25</string>
 			<key>content</key>
 			<string>哥哥的新专辑《Antares》明天中午十二点就上线啦！重要的事情说三遍！！！明天中午十二点！！明天中午十二点！！！明天中午十二点！！！！我们会拼尽全力冲鸭！！！！哥哥你值得最好的！！！你是我们的骄傲！！！提前听了新歌真的真的真的很好听！！！！</string>
@@ -39,7 +71,7 @@
 			<key>time</key>
 			<string>10-31 22:25</string>
 			<key>content</key>
-			<string>《Antares》倒计时1一天！！！我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了！！爱您！希望成绩能让你为每个你骄傲</string>
+			<string>《Antares》倒计时1一天!我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了我准备好了!爱您!希望成绩能让你为每个你骄傲</string>
 			<key>nickname</key>
 			<string>Partei</string>
 			<key>icon</key>
@@ -54,6 +86,38 @@
 			<string>慧_wu</string>
 			<key>icon</key>
 			<string>wyf1_comment3.jpg</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>time</key>
+			<string>11-23 02:47</string>
+			<key>content</key>
+			<string>不然出什么远门</string>
+			<key>nickname</key>
+			<string>豆包鹅</string>
+			<key>icon</key>
+			<string>lqy_comment1.jpg</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>11-23 02:47</string>
+			<key>content</key>
+			<string>你只要带饲料就行了8</string>
+			<key>nickname</key>
+			<string>第十七号碎尸人</string>
+			<key>icon</key>
+			<string>lqy_comment2.jpg</string>
+		</dict>
+		<dict>
+			<key>time</key>
+			<string>11-23 02:48</string>
+			<key>content</key>
+			<string>女孩儿的出远门约等于搬家</string>
+			<key>nickname</key>
+			<string>擅长憋尿</string>
+			<key>icon</key>
+			<string>lqy_comment3.jpg</string>
 		</dict>
 	</array>
 	<array>

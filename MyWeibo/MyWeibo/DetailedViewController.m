@@ -141,6 +141,7 @@ NSString *const zero = @"0";
     _bottomScrollView.tag = 2;
     [_bottomScrollView setBackgroundColor: [UIColor whiteColor]];
     
+    //转发评论或者赞为0时显示Come to share great content
     _label_comment = [[UILabel alloc]initWithFrame:CGRectMake(80, 100, 200, 20)];
     [_label_comment setText:@"Come to share great content"];
     [_label_comment setTextColor:[UIColor colorWithRed:144/255.0 green:144/255.0 blue:144/255.0 alpha:1.0]];
@@ -225,6 +226,7 @@ NSString *const zero = @"0";
     [_btn_comment addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_btn_like addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
+    //这里的tag用于判断按下的是不是repost comment和like按钮
     if(self.tag == 11){
         _outerScrollView.contentOffset = CGPointMake(0, _detailCommentView.frame.origin.y - 80);
         _imageLine.center = CGPointMake(_btn_repost.center.x, _imageLine.center.y);
@@ -278,7 +280,6 @@ NSString *const zero = @"0";
     imageScrollView.bounces = YES;
     imageScrollView.contentSize = CGSizeMake(mainWidth*self.post.postImgs.count, mainHeight);
     [imageScrollView setBackgroundColor:[UIColor blackColor]];
-    //[self.superview.superview.superview addSubview:imageScrollView];
     
     for (int i=0;i<self.post.postImgs.count;i++){
         UIImageView *largeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(mainWidth*i+leadingSpace_d, 100, mainWidth-leadingSpace_d*2, 360)];
@@ -327,6 +328,7 @@ NSString *const zero = @"0";
 - (void)btnClicked:(UIButton*)sender{
     NSInteger tag = [sender tag];
     if(tag == 199){
+        //imageLine和bottomscrollView滑动的动画
         [UIView animateWithDuration:0.2f animations:^{
             _imageLine.center = CGPointMake(_btn_repost.center.x, _imageLine.center.y);
             _bottomScrollView.contentOffset = CGPointMake(0, 0);
@@ -356,6 +358,7 @@ NSString *const zero = @"0";
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //底部scrollView滑动时调用
     if(scrollView.tag == 2){
         if(scrollView.contentOffset.x <= self.view.bounds.size.width){
             _imageLine.center = CGPointMake(scrollView.contentOffset.x/self.view.bounds.size.width*(_btn_comment.center.x-_btn_repost.center.x)+_btn_repost.center.x, _imageLine.center.y);
@@ -366,6 +369,7 @@ NSString *const zero = @"0";
     }
 }
 
+//scrollView自然停止滑动
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if(scrollView.tag == 2){
         if(scrollView.contentOffset.x == 0){
@@ -387,8 +391,10 @@ NSString *const zero = @"0";
     }
 }
 
+//scrollView停止拖动
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     if(scrollView.tag == 2){
+        //停止拖动并且要自然停止滑动时
         if(!decelerate){
             if(scrollView.contentOffset.x == 0){
                 _imageLine.center = CGPointMake(_btn_repost.center.x, _imageLine.center.y);
