@@ -10,11 +10,11 @@
 
 @interface MyImageView : UIImageView
 
-@property (nonatomic,nonatomic) int i;
-@property (nonatomic,nonatomic) int j;
-@property (nonatomic,nonatomic) NSInteger row;
-@property (nonatomic,nonatomic) NSInteger column;
-@property (nonatomic,nonatomic) NSInteger count;
+@property (nonatomic) int i;
+@property (nonatomic) int j;
+@property (nonatomic) NSInteger row;
+@property (nonatomic) NSInteger column;
+@property (nonatomic) NSInteger count;
 
 
 @end
