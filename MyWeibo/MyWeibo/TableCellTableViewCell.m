@@ -133,7 +133,7 @@ NSMutableArray *rectInWindowArray;
             if (i * column + j < _singlePostItem.postImgs.count) {
                 NSString *imageName = _singlePostItem.postImgs[i * column + j];
                 UIImage *image = [UIImage imageNamed:imageName];
-                //MyImageView 作用是将图片的位置存起来，用于tap手势之后图片放大的缩小的动画
+                //MyImageView 作用是将图片的位置存起来，用于tap手势之后图片放大和缩小的动画
                 MyImageView *imageView = [[MyImageView alloc] initWithFrame:CGRectMake(leadingSpace + j * (imageSpace + imageWidth), originY + leadingSpace + i * (imageSpace + imageWidth), imageWidth, imageWidth)];
                 
                 imageView.i = i;

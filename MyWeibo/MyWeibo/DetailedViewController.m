@@ -26,7 +26,6 @@ NSMutableArray *rectInWindowArray_d;
 
 NSString *const commentCellIdentifier = @"cellID3";
 NSString *const likeCellIdentifier = @"cellID4";
-NSString *const zero = @"0";
 
 @interface DetailedViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
