@@ -14,6 +14,7 @@
 @property (nonatomic,copy) NSString *content;
 @property (nonatomic,copy) NSString *nickname;
 @property (nonatomic,copy) NSString *icon;
+@property (nonatomic,copy) NSString *likeNum;
 
 -(instancetype)initWithDic:(NSDictionary *)dic;
 

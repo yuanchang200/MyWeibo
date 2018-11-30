@@ -45,6 +45,8 @@ CGFloat originY_2;
     self.nickname.text = _singleCommentItem.nickname;
     self.comment.text = _singleCommentItem.content;
     self.time.text = _singleCommentItem.time;
+    //self.trend.text = _singleCommentItem.likeNum;
+    self.trend.text = [[NSString alloc] initWithFormat:@"Likes: %@",_singleCommentItem.likeNum];
     
     CGFloat contentHeight = [CommentTableViewCell getLabelHeightWithText:self.comment.text Width:UI_SCREEN_WIDTH - leadingSpace_2 * 2 Font:[UIFont systemFontOfSize:14]];
     

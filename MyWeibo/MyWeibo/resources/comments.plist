@@ -12,6 +12,8 @@
 			<string>MANLAM_</string>
 			<key>icon</key>
 			<string>gyy_comment1.jpg</string>
+			<key>likeNum</key>
+			<string>3</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -22,6 +24,8 @@
 			<string>-食物终结者GyY</string>
 			<key>icon</key>
 			<string>gyy_head.jpg</string>
+			<key>likeNum</key>
+			<string>0</string>
 		</dict>
 	</array>
 	<array>
@@ -34,6 +38,8 @@
 			<string>如此女子x-m</string>
 			<key>icon</key>
 			<string>xmj_comment1.jpg</string>
+			<key>likeNum</key>
+			<string>1k</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -44,6 +50,8 @@
 			<string>体力不支伴间歇脑短路少女</string>
 			<key>icon</key>
 			<string>xmj_comment2.jpg</string>
+			<key>likeNum</key>
+			<string>532</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -54,6 +62,8 @@
 			<string>大大大大大牌</string>
 			<key>icon</key>
 			<string>xmj_comment3</string>
+			<key>likeNum</key>
+			<string>34</string>
 		</dict>
 	</array>
 	<array>
@@ -66,6 +76,8 @@
 			<string>安塔尔_KW</string>
 			<key>icon</key>
 			<string>wyf1_comment1.jpg</string>
+			<key>likeNum</key>
+			<string>56</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -76,6 +88,8 @@
 			<string>Partei</string>
 			<key>icon</key>
 			<string>wyf1_comment2.jpg</string>
+			<key>likeNum</key>
+			<string>35</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -86,6 +100,8 @@
 			<string>慧_wu</string>
 			<key>icon</key>
 			<string>wyf1_comment3.jpg</string>
+			<key>likeNum</key>
+			<string>67</string>
 		</dict>
 	</array>
 	<array>
@@ -98,6 +114,8 @@
 			<string>豆包鹅</string>
 			<key>icon</key>
 			<string>lqy_comment1.jpg</string>
+			<key>likeNum</key>
+			<string>45</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -108,6 +126,8 @@
 			<string>第十七号碎尸人</string>
 			<key>icon</key>
 			<string>lqy_comment2.jpg</string>
+			<key>likeNum</key>
+			<string>89</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -118,6 +138,8 @@
 			<string>擅长憋尿</string>
 			<key>icon</key>
 			<string>lqy_comment3.jpg</string>
+			<key>likeNum</key>
+			<string>36</string>
 		</dict>
 	</array>
 	<array>
@@ -130,6 +152,8 @@
 			<string>吴亦凡喜欢的人</string>
 			<key>icon</key>
 			<string>wyf2_comment1.jpg</string>
+			<key>likeNum</key>
+			<string>25</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -140,6 +164,8 @@
 			<string>芒果篮球你</string>
 			<key>icon</key>
 			<string>wyf2_comment2.jpg</string>
+			<key>likeNum</key>
+			<string>2k</string>
 		</dict>
 		<dict>
 			<key>time</key>
@@ -150,6 +176,8 @@
 			<string>Galaxymmm_</string>
 			<key>icon</key>
 			<string>wyf2_comment3.jpg</string>
+			<key>likeNum</key>
+			<string>538</string>
 		</dict>
 	</array>
 </array>

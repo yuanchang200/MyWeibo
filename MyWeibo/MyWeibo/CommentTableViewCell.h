@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nickname;
 @property (weak, nonatomic) IBOutlet UILabel *comment;
 @property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UILabel *trend;
 
 @property (nonatomic, strong) commentItem *singleCommentItem;
 

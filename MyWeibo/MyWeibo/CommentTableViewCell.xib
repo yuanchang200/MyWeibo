@@ -43,13 +43,22 @@
                         <color key="textColor" red="0.6927420661" green="0.6927420661" blue="0.6927420661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXr-Gc-48Y">
+                        <rect key="frame" x="239" y="67.5" width="73" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.6212059090658133" green="0.63014086787564771" blue="0.61941780456766404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="t1R-E1-3PD" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-69" id="4Ug-S0-e3i"/>
+                    <constraint firstItem="QXr-Gc-48Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="239" id="DBe-C4-Mbu"/>
                     <constraint firstItem="uDT-xy-FnF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ILL-4r-kBp"/>
                     <constraint firstItem="7ya-Ne-suT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ItM-wQ-Ouc"/>
+                    <constraint firstItem="QXr-Gc-48Y" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-3.5" id="R60-Ly-LIe"/>
                     <constraint firstItem="4JL-0t-R6b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="RYP-UB-EG4"/>
                     <constraint firstItem="uDT-xy-FnF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="WNJ-CL-6xz"/>
+                    <constraint firstItem="QXr-Gc-48Y" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-8" id="YzT-MD-RWg"/>
                     <constraint firstItem="t1R-E1-3PD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="bSE-gT-mOX"/>
                     <constraint firstItem="t1R-E1-3PD" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-7" id="dh4-g8-b0d"/>
                     <constraint firstItem="4JL-0t-R6b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="29" id="nYt-Zm-E3l"/>
@@ -63,6 +72,7 @@
                 <outlet property="headImage" destination="7ya-Ne-suT" id="o1f-mQ-dff"/>
                 <outlet property="nickname" destination="uDT-xy-FnF" id="eGE-Y7-V0x"/>
                 <outlet property="time" destination="t1R-E1-3PD" id="cE0-H9-iJC"/>
+                <outlet property="trend" destination="QXr-Gc-48Y" id="sz0-Ha-m0h"/>
             </connections>
             <point key="canvasLocation" x="33" y="-133"/>
         </tableViewCell>
